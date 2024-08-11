@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'SecondScreen.dart'; // Import the second screen class
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 void main() {
   runApp(MyApp());
@@ -43,19 +45,42 @@ class _LoginPageState extends State<LoginPage> {
       // Implement your login logic here
       print('Username: $username, Password: $password');
 
+      loginUser();
+    }
+  }
+
+  void loginUser() async {
+    final url = Uri.parse('https://dummyjson.com/auth/login');
+    final response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode({
+        'username': 'emilys',
+        'password': 'emilyspass',
+        'expiresInMins': 30, // optional, defaults to 60
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      final responseData = json.decode(response.body);
+      print(responseData);
+      
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => SecondScreen()),
       );
+    } else {
+      print('Failed to login: ${response.statusCode}');
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          //title: Text('Login Page'),
-          ),
+      // appBar: AppBar(
+      //     //title: Text('Login Page'),
+      //     ),
       body: SingleChildScrollView(
           child: Padding(
         padding: const EdgeInsets.all(16.0),

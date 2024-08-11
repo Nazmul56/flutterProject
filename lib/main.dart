@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
     if (response.statusCode == 200) {
       final responseData = json.decode(response.body);
       print(responseData);
-      
+
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => SecondScreen()),

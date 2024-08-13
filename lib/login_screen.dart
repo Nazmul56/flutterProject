@@ -3,12 +3,14 @@ import 'second_screen.dart'; // Import the second screen class
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class LoginPage extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -60,6 +62,27 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final TextStyle textStyle = theme.textTheme.bodyMedium!;
+    final List<Widget> aboutBoxChildren = <Widget>[
+      const SizedBox(height: 24),
+      RichText(
+        text: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+                style: textStyle,
+                text: "Flutter is Google's UI toolkit for building beautiful, "
+                    'natively compiled applications for mobile, web, and desktop '
+                    'from a single codebase. Learn more about Flutter at '),
+            TextSpan(
+                style: textStyle.copyWith(color: theme.colorScheme.primary),
+                text: 'https://flutter.dev'),
+            TextSpan(style: textStyle, text: '.'),
+          ],
+        ),
+      ),
+    ];
+
     return Scaffold(
 
       // appBar: AppBar(
@@ -137,6 +160,21 @@ class _LoginPageState extends State<LoginPage> {
               Text('OR login with'),
               SizedBox(height: 20),
               SizedBox(height: 20),
+
+
+              ElevatedButton(
+                child: const Text('Show About Example'),
+                onPressed: () {
+                  showAboutDialog(
+                    context: context,
+                    applicationIcon: const FlutterLogo(),
+                    applicationName: 'Show About Example',
+                    applicationVersion: 'August 2019',
+                    applicationLegalese: '\u{a9} 2014 The Flutter Authors',
+                    children: aboutBoxChildren,
+                  );
+                },
+              )
             ],
           ),
         ),

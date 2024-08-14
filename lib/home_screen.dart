@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'second_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,12 +15,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   static final List<Widget> _screens = [
     Container(),
+    SecondScreen(),
     const Placeholder(),
     const Placeholder(),
     const Placeholder(),
     const Placeholder(),
   ];
   void _onItemTapped(int index) {
+    //Set States
     setState(() {
       _selectedIndex = index;
     });
@@ -52,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: const ClipOval(
         child: Material(
           color: Color(0xFF7861FF),
-          elevation: 10,
+          elevation: 50,
           child: InkWell(
             child: SizedBox(
               width: 56,

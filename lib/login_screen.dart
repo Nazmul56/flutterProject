@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'second_screen.dart'; // Import the second screen class
-import 'home_screen.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 

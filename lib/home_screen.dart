@@ -2,10 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'second_screen.dart';
+import 'count_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-
+  //Counter
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -15,8 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   static final List<Widget> _screens = [
     Container(),
+    CountScreen(),
     SecondScreen(),
-    const Placeholder(),
     const Placeholder(),
     const Placeholder(),
     const Placeholder(),
@@ -28,22 +29,12 @@ class _HomeScreenState extends State<HomeScreen> {
       _selectedIndex = index;
     });
   }
-
-  //Counter
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Home",
+          "Home ",
         ),
         automaticallyImplyLeading: false,
         centerTitle: false,
@@ -63,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: _incrementCounter,
+          onPressed: () {},
           child: const ClipOval(
             child: Material(
               color: Color(0xFF7861FF),
@@ -72,7 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: SizedBox(
                   width: 56,
                   height: 56,
-                  child: Icon(
+                  child:
+                  Icon(
                     CupertinoIcons.add_circled,
                     size: 28,
                     color: Colors.white,

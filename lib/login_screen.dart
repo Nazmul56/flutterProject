@@ -51,11 +51,13 @@ class _LoginScreenState extends State<LoginScreen> {
       final responseData = json.decode(response.body);
       print(responseData);
 
-      Navigator.push(
-        context,
-        //MaterialPageRoute(builder: (context) => SecondScreen()),
-        MaterialPageRoute(builder: (context) => HomeScreen()),
-      );
+      // Navigator.push(
+      //   context,
+      //   //MaterialPageRoute(builder: (context) => SecondScreen()),
+      //   MaterialPageRoute(builder: (context) => HomeScreen()),
+      // );s
+
+      Navigator.pushNamed(context, '/home');
     } else {
       print('Failed to login: ${response.statusCode}');
     }

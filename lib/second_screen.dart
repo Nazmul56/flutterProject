@@ -23,14 +23,6 @@ class SecondScreen extends StatelessWidget {
         ],
       ),
 
-      // Center(
-      //   child: ElevatedButton(
-      //     child: Text('Go Back'),
-      //     onPressed: () {
-      //       Navigator.pop(context);
-      //     },
-      //   ),
-      // ),
     );
   }
 }

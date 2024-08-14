@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'second_screen.dart'; // Import the second screen class
+import 'home_screen.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -52,7 +53,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SecondScreen()),
+        //MaterialPageRoute(builder: (context) => SecondScreen()),
+        MaterialPageRoute(builder: (context) => HomeScreen()),
       );
     } else {
       print('Failed to login: ${response.statusCode}');

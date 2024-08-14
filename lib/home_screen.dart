@@ -21,10 +21,20 @@ class _HomeScreenState extends State<HomeScreen> {
     const Placeholder(),
     const Placeholder(),
   ];
+
   void _onItemTapped(int index) {
     //Set States
     setState(() {
       _selectedIndex = index;
+    });
+  }
+
+  //Counter
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
     });
   }
 
@@ -52,23 +62,25 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      floatingActionButton: const ClipOval(
-        child: Material(
-          color: Color(0xFF7861FF),
-          elevation: 50,
-          child: InkWell(
-            child: SizedBox(
-              width: 56,
-              height: 56,
-              child: Icon(
-                CupertinoIcons.add_circled,
-                size: 28,
-                color: Colors.white,
+      floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          child: const ClipOval(
+            child: Material(
+              color: Color(0xFF7861FF),
+              elevation: 50,
+              child: InkWell(
+                child: SizedBox(
+                  width: 56,
+                  height: 56,
+                  child: Icon(
+                    CupertinoIcons.add_circled,
+                    size: 28,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-      ),
+          )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

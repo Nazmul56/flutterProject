@@ -158,6 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
+
               SizedBox(height: 20),
               Text('OR login with'),
               SizedBox(height: 20),

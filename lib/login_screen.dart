@@ -90,6 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
       // appBar: AppBar(
       //     //title: Text('Login Page'),
       //     ),
+      backgroundColor: Colors.green,
       body: Center( child: SingleChildScrollView(
           child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -104,8 +105,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 200,
               ),
               SizedBox(height: 20),
-              Text(
-                'Login',
+              const Text(
+                'Log In',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,

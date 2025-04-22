@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shorebird_code_push/shorebird_code_push.dart';
 
+import 'about_screen.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -285,6 +287,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 //const Spacer(),
               ],
             ),
+            const SizedBox(height: 16),
+            Image.network(
+              'https://picsum.photos/id/127/400/200',
+              width: 400,
+              height: 200,
+              errorBuilder: (context, error, stackTrace) => const Icon(Icons.error),
+              loadingBuilder: (context, child, progress) {
+                if (progress == null) return child;
+                return const CircularProgressIndicator();
+              },
+            ),
             Form(
               key: _formKey,
               child: Column(
@@ -342,13 +355,28 @@ class _LoginScreenState extends State<LoginScreen> {
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                       ),
-                      child: Text('Login'),
+                      child: const Text('Login'),
                     ),
                   ),
                   const SizedBox(height: 20),
-                  const Text('OR login with'),
-                  const SizedBox(height: 20),
-                  const SizedBox(height: 20),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const AboutScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                      ),
+                      child: const Text('About'),
+                    ),
+                  ),
                 ],
               ),
             ),

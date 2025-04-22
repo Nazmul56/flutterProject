@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'second_screen.dart';
+import 'about_screen.dart';
 import 'count_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   static final List<Widget> _screens = [
     Container(),
     CountScreen(),
-    SecondScreen(),
+    const AboutScreen(),
     const Placeholder(),
     const Placeholder(),
     const Placeholder(),

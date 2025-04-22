@@ -5,6 +5,8 @@ class AboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final TextStyle textStyle = theme.textTheme.bodyMedium!;
     return Scaffold(
       appBar: AppBar(
         title: const Text('About'),
@@ -14,29 +16,26 @@ class AboutScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'About This App',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+                style: theme.textTheme.headlineMedium,
             ),
             const SizedBox(height: 16),
-            const Text(
+            Text(
               'This app is designed to provide users with helpful tools and information. '
                   'It is built using Flutter and demonstrates clean UI design, version tracking, '
                   'and modular development.',
-              style: TextStyle(fontSize: 16),
+              style: theme.textTheme.bodySmall,
             ),
             const SizedBox(height: 24),
-            const Text(
+            Text(
               'Version: 1.0.0',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              style: theme.textTheme.bodySmall,
             ),
             const SizedBox(height: 8),
-            const Text(
+            Text(
               'Build Number: 1',
-              style: TextStyle(fontSize: 16),
+              style: theme.textTheme.bodySmall,
             ),
             const Spacer(),
             Center(
